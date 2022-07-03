@@ -1,0 +1,25 @@
+<% if @event.errors.any?%>
+    <div class="error-explanation">
+        <ul>
+            <% @event.errors.each do |error|%>
+                <li>
+                    <%= error.full_message%>
+                </li>
+            <% end %>
+        </ul>
+    </div>
+<% end %>
+
+
+
+<%= form_with model: @event do |f|%>
+    <%= f.label :title, "Event title"%>
+    <%= f.text_field :title%>
+    <%= f.label :body, "Event description"%>
+    <%= f.text_area :body, placeholder: "This event is going to be about..."%>
+    <%= f.label :event_date, "Select the date for your event :"%>
+    <%= f.date_field :event_date%>
+    <%= f.label :location, "Event location"%>
+    <%= f.text_field :location, placeholder: "Ashley's house"%>
+    <%= f.submit "Create_event"%>
+<% end %>
