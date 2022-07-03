@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
     def show
-        @hosted_events = @user.hosted_events
+        @user = User.find(current_user.id)
+        @created_events = @user.created_events
     end
 end
