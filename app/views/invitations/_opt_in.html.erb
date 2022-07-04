@@ -1,4 +1,4 @@
-<% unless User.find(current_user.id).attends_event?(event_id)%>
+<% unless User.find(current_user.id).attends_event?(event_id.to_i)%>
     <%= form_with url: "/invitations", method: :create do |f|%>
     <%= f.hidden_field :attendee_id, value: current_user.id%>
     <%= f.hidden_field :event_id, value: event_id%>
