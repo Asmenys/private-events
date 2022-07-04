@@ -8,4 +8,17 @@ class User < ApplicationRecord
 
          has_many :invitations, foreign_key: :attendee_id
          has_many :attended_events, through: :invitations, source: :event
+
+
+  def attends_event?(event_id)
+    result = false
+    invitations = self.invitations
+    invitations.each do |invitation|
+      if invitation.event_id == event_id
+        result = true
+        break
+      end
+    end
+    result
+  end
 end

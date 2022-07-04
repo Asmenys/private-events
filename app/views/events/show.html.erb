@@ -1,1 +1,2 @@
 <%=render 'event', event: Event.find(params[:id])%>
+<%= render 'invitations/opt_in', event_id: params[:id] %>

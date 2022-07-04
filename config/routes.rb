@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :events
 
   resources :users, only: [:show]
+
+  resources :invitations, only: [:new, :create]
   # Defines the root path route ("/")
    root "events#index"
 end
