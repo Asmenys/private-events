@@ -11,5 +11,8 @@ class Event < ApplicationRecord
     validates :body, length: {maximum: 150}
     validates :event_date, presence: true
     validates :location, presence: true
-    
+  
+
+    scope :past, -> {where("event_date <?", Time.now)}
+    scope :upcoming, -> {where("event_date >?", Time.now)}
 end

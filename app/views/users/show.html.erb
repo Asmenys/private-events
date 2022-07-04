@@ -8,13 +8,13 @@
 <ul class="attended-events">
     <ul class="previous-events">
     <h3>"Previous events"</h3>
-    <%@user.attended_events.where("event_date <?", Time.now).each do |event|%>
+    <%@user.attended_events.past.each do |event|%>
         <li class="past-event"><%=event.title%></li>
     <% end %>
     </ul>
     <ul class="upcoming-events">
     <h3>"Upcoming events"</h3>
-    <%@user.attended_events.where("event_date > ?", Time.now).each do |event|%>
+    <%@user.attended_events.upcoming.each do |event|%>
         <li class="upcoming-event"><%=event.title%></li>
     <% end %>
     </ul>
