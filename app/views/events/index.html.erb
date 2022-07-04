@@ -1,3 +1,13 @@
-<% @events.each do |event| %>
+<h4>Past events:</h4>
+<% Event.past.each do |event| %>
 <%=render 'event', event: event%>
 <% end %>
+<h4>Upcoming events:</h4>
+<% Event.upcoming.each do |event| %>
+<%=render 'event', event: event%>
+<% end %>
+
+<h3>Index list:</h3>
+<%= link_to "Create a new event", "/events/new"%>
+<%= link_to "Sign up", "/users/sign_up/"%>
+<%= link_to "Log in", "/users/sign_in/"%>
