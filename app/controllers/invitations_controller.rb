@@ -7,6 +7,7 @@ class InvitationsController < ApplicationController
     def create
         @invitation = Invitation.new(invitation_params)
         @invitation.save
+        redirect_to Event.find(invitation_params[:event_id])
     end
 
     private
