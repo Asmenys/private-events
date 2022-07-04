@@ -1,2 +1,10 @@
 <%=render 'event', event: Event.find(params[:id])%>
 <%= render 'invitations/opt_in', event_id: params[:id] %>
+<ul class="attendee_list">
+<h2>Attendee list:</h2>
+<%Event.find(params[:id]).attendees.each do |attendee|%>
+    <li class="attendee">
+        <h4><%= attendee.email%></h4>
+    </li>
+<% end %>
+</ul>
